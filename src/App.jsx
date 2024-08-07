@@ -4,7 +4,7 @@ import videos from "./assets/mockData";
 import Person from "./components/Person";
 
 function App() {
-  const loggedIn = false;
+  const loggedIn = true;
   return (
     <div>
       {loggedIn ? (
