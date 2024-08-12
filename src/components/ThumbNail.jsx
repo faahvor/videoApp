@@ -1,5 +1,4 @@
-import React from "react";
-
+import PropTypes from 'prop-types';
 const ThumbNail = ({ video }) => {
   return (
     <video
@@ -12,4 +11,7 @@ const ThumbNail = ({ video }) => {
     ></video>
   );
 };
+ThumbNail.propTypes={
+  video: PropTypes.object,
+}
 export default ThumbNail;

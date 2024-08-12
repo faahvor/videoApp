@@ -1,5 +1,5 @@
- import React from "react"
  import Video from "./Video"
+ import PropTypes from 'prop-types';
  const VideoList =({videos})=>{
     const count  = videos.length 
     let heading = "no videos found"
@@ -20,4 +20,9 @@
 </div>
     )
 }
+VideoList.propTypes={
+    videos: PropTypes.array.isRequired,
+    
+  
+  }
 export default VideoList

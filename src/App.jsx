@@ -2,9 +2,15 @@ import SearchInput from "./components/SearchInput";
 import VideoList from "./components/VideoList";
 import videos from "./assets/mockData";
 import Person from "./components/Person";
+import { useEffect, useState } from "react";
 
 function App() {
   const loggedIn = true;
+  const [searchInput,setSearchInput]=useState("")
+
+  useEffect(()=>{
+    console.log('component mounted');
+  })
   return (
     <div>
       {loggedIn ? (
@@ -13,7 +19,10 @@ function App() {
             <h1 className="text-2xl font-semibold">React Videos</h1>
             <h4 className="text-lg">A brief history of React</h4>
           </header>
-          <SearchInput />
+          <SearchInput 
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          />
           <VideoList videos={videos} />
         </div>
       ) : (

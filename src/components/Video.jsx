@@ -1,5 +1,6 @@
 import LikeButton from "./LikeButton"
 import ThumbNail from "./ThumbNail"
+import PropTypes from 'prop-types';
 
 const Video =({video})=>{
     return(
@@ -14,5 +15,8 @@ const Video =({video})=>{
 
         </div>
     )
+}
+Video.propTypes={
+    video:PropTypes.object
 }
 export default Video 
