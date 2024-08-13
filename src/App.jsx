@@ -6,11 +6,18 @@ import { useEffect, useState } from "react";
 
 function App() {
   const loggedIn = true;
-  const [searchInput,setSearchInput]=useState("")
+  const [searchInput, setSearchInput] = useState("");
+  const [videoData, setVideoData] = useState(videos);
+  const [filteredVideoData, setFilteredVideoData] = useState([]);
 
-  useEffect(()=>{
-    console.log('component mounted');
-  })
+  useEffect(() => {
+    const filteredVideo = videoData.filter((video) =>
+      video.name.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    setFilteredVideoData(filteredVideo);
+    console.log(filteredVideo);
+  }, [searchInput]);
   return (
     <div>
       {loggedIn ? (
@@ -19,14 +26,14 @@ function App() {
             <h1 className="text-2xl font-semibold">React Videos</h1>
             <h4 className="text-lg">A brief history of React</h4>
           </header>
-          <SearchInput 
-          searchInput={searchInput}
-          setSearchInput={setSearchInput}
+          <SearchInput
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
           />
-          <VideoList videos={videos} />
+          <VideoList videos={videoData} filteredVideoData={filteredVideoData} />
         </div>
       ) : (
-        <Person/>
+        <Person />
       )}
     </div>
   );
